@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Reviews',
   description:
     'Critical reviews of games, series, films, and collector releases with clear scoring and verdicts.',
+  alternates: {
+    canonical: '/reviews',
+  },
 };
 
 export default function ReviewsPage() {

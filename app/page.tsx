@@ -1,3 +1,5 @@
+import type { Metadata } from 'next';
+
 import { BrandVoiceCta } from '@/components/home/brand-voice-cta';
 import { FeaturedReview } from '@/components/home/featured-review';
 import { HomeHero } from '@/components/home/home-hero';
@@ -12,6 +14,15 @@ import {
   storeTeasers,
   trendingTopics,
 } from '@/lib/homepage-content';
+
+export const metadata: Metadata = {
+  title: 'Home',
+  description:
+    'Nerd Cluster delivers polished news, reviews, features, and collector-focused coverage across entertainment and fandom culture.',
+  alternates: {
+    canonical: '/',
+  },
+};
 
 export default function HomePage() {
   return (

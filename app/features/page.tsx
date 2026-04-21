@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'Features',
   description:
     'Longform features and analysis across entertainment, fandom, and collector culture.',
+  alternates: {
+    canonical: '/features',
+  },
 };
 
 export default function FeaturesPage() {

@@ -44,6 +44,9 @@ export const metadata: Metadata = {
   title: 'Contact',
   description:
     'Contact Nerd Cluster for editorial tips, partnerships, and contributor opportunities.',
+  alternates: {
+    canonical: '/contact',
+  },
 };
 
 export default function ContactPage() {
@@ -76,29 +79,37 @@ export default function ContactPage() {
         <SectionHeading
           eyebrow="Contact form"
           title="Quick inquiry form"
-          description="A full backend submission workflow is not live yet. For now, use the email channels above for guaranteed delivery."
+          description="Backend submissions are not live yet. Use the email channels above for guaranteed delivery right now."
         />
 
         <CardShell className="contact-form-shell">
+          <div className="contact-form-status" role="note" aria-label="Form status">
+            <p>
+              Form submissions are currently offline during launch hardening. Please email the
+              appropriate inbox above for an active response path.
+            </p>
+          </div>
           <form className="contact-form" aria-describedby="contact-form-disclaimer">
-            <label>
-              Name
-              <input name="name" type="text" placeholder="Your name" disabled />
-            </label>
-            <label>
-              Email
-              <input name="email" type="email" placeholder="you@example.com" disabled />
-            </label>
-            <label>
-              Message
-              <textarea name="message" rows={5} placeholder="What would you like to discuss?" disabled />
-            </label>
-            <button type="button" disabled>
-              Form submission coming soon
+            <fieldset disabled>
+              <label>
+                Name
+                <input name="name" type="text" placeholder="Your name" />
+              </label>
+              <label>
+                Email
+                <input name="email" type="email" placeholder="you@example.com" />
+              </label>
+              <label>
+                Message
+                <textarea name="message" rows={5} placeholder="What would you like to discuss?" />
+              </label>
+            </fieldset>
+            <button type="button" disabled aria-disabled="true">
+              Submission disabled during launch prep
             </button>
           </form>
           <p id="contact-form-disclaimer" className="contact-form__disclaimer">
-            This form is intentionally disabled until backend handling is implemented.
+            We will enable this form once secure backend handling and confirmations are in place.
           </p>
         </CardShell>
       </section>

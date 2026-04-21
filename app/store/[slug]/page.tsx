@@ -21,6 +21,20 @@ export async function generateMetadata({ params }: StoreProductPageProps): Promi
   return {
     title: `${product.name} | Store`,
     description: product.tagline,
+    alternates: {
+      canonical: `/store/${product.slug}`,
+    },
+    openGraph: {
+      type: 'website',
+      title: `${product.name} | Store`,
+      description: product.tagline,
+      url: `/store/${product.slug}`,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${product.name} | Store`,
+      description: product.tagline,
+    },
   };
 }
 
