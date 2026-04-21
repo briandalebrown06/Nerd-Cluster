@@ -584,12 +584,21 @@ a {
     border-top: 1px solid rgba(54, 65, 97, 0.5);
     max-height: 0;
     overflow: hidden;
-    transition: max-height 200ms ease;
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      max-height 200ms ease,
+      visibility 0s linear 200ms;
     background: color-mix(in srgb, var(--surface-strong) 92%, transparent);
   }
 
   .mobile-panel--open {
     max-height: 420px;
+    visibility: visible;
+    pointer-events: auto;
+    transition:
+      max-height 200ms ease,
+      visibility 0s linear 0s;
   }
 
   .mobile-nav__list {
