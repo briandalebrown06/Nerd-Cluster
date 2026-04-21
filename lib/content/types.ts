@@ -1,12 +1,15 @@
-export type AuthorMeta = {
+export type EditorialSection = 'news' | 'reviews' | 'features';
+
+export type Author = {
   id: string;
   name: string;
-  role?: string;
+  role: string;
   avatar?: string;
-  bio?: string;
 };
 
-export type ArticleMeta = {
+export type EditorialEntry = {
+  id: string;
+  section: EditorialSection;
   title: string;
   slug: string;
   excerpt: string;
@@ -15,21 +18,13 @@ export type ArticleMeta = {
   categories: string[];
   tags: string[];
   featuredImage: string;
-  readingTimeMinutes?: number;
+  readingTimeMinutes: number;
   status: 'draft' | 'published';
+  body: string[];
 };
 
-export type ReviewMeta = ArticleMeta & {
-  score?: number;
-  platform?: string[];
-};
-
-export type ProductMeta = {
-  name: string;
-  slug: string;
-  price: string;
-  category: string;
-  image: string;
-  externalUrl?: string;
-  inStock: boolean;
+export type ReviewEntry = EditorialEntry & {
+  section: 'reviews';
+  score: number;
+  verdict: string;
 };

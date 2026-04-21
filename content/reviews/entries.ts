@@ -1,0 +1,70 @@
+import type { ReviewEntry } from '@/lib/content/types';
+
+export const reviewEntries: ReviewEntry[] = [
+  {
+    id: 'review-eclipse-protocol',
+    section: 'reviews',
+    title: 'Review: Eclipse Protocol Balances Tension, Tactics, and Heart',
+    slug: 'review-eclipse-protocol-tactics-and-heart',
+    excerpt:
+      'A cerebral sci-fi thriller with meaningful systems depth and character beats that actually land.',
+    publishedAt: '2026-04-20',
+    authorId: 'rowan-kent',
+    categories: ['Games'],
+    tags: ['strategy', 'sci-fi', 'single-player'],
+    featuredImage: 'Tactical hologram battlefield with deep space backdrop',
+    readingTimeMinutes: 8,
+    status: 'published',
+    score: 8.8,
+    verdict: 'Essential for strategy fans who want narrative payoff.',
+    body: [
+      'Eclipse Protocol succeeds because it trusts players to think, adapt, and accept tradeoffs. Systems interlock cleanly without becoming opaque.',
+      'The campaign framing is more intimate than expected, using mission fallout and crew dynamics to create emotional momentum between set pieces.',
+      'Its few pacing dips do not undercut the broader achievement: this is a confident genre release with staying power beyond launch week.',
+    ],
+  },
+  {
+    id: 'review-vault-riders-season1',
+    section: 'reviews',
+    title: 'Review: Vault Riders Season 1 Is Stylish but Structurally Uneven',
+    slug: 'review-vault-riders-season-1-structurally-uneven',
+    excerpt:
+      'An art-direction standout with strong midseason episodes, held back by rushed connective arcs.',
+    publishedAt: '2026-04-12',
+    authorId: 'rowan-kent',
+    categories: ['TV'],
+    tags: ['streaming', 'sci-fi', 'series-review'],
+    featuredImage: 'Futuristic city skyline with elevated rail and neon glow',
+    readingTimeMinutes: 7,
+    status: 'published',
+    score: 7.4,
+    verdict: 'Worth watching for visuals and standout episodes.',
+    body: [
+      'Vault Riders opens with impressive visual confidence, especially in production design and costume language that helps worldbuilding feel tactile.',
+      'The strongest episodes focus on character pairings and moral ambiguity, while the weakest rely too heavily on exposition and rapid resets.',
+      'Season 2 has real potential if the writers commit to consequence and let arcs breathe instead of constantly accelerating to the next reveal.',
+    ],
+  },
+  {
+    id: 'review-resonance-collectors-set',
+    section: 'reviews',
+    title: 'Review: Resonance Collector Set Nails Presentation, Misses Practicality',
+    slug: 'review-resonance-collector-set-presentation-practicality',
+    excerpt:
+      'A premium package with excellent art direction and mixed day-to-day usability.',
+    publishedAt: '2026-04-08',
+    authorId: 'maya-lane',
+    categories: ['Collectibles'],
+    tags: ['physical-media', 'collector-edition', 'design'],
+    featuredImage: 'Collector box set with embossed metallic slipcase',
+    readingTimeMinutes: 6,
+    status: 'published',
+    score: 7.9,
+    verdict: 'Great display piece, imperfect utility object.',
+    body: [
+      'The Resonance set is one of the better-looking collector releases this year, with premium materials and cohesive visual storytelling across inserts.',
+      'Practical pain points appear quickly: tight tray tolerances, fragile foldouts, and a display stand that feels under-tested.',
+      'For display-first collectors this is still an appealing pickup, but archival-minded buyers may want additional protective storage.',
+    ],
+  },
+];

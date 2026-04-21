@@ -1,19 +1,19 @@
 import type { Metadata } from 'next';
 
-import { PageShell } from '@/components/layout/page-shell';
+import { EditorialListing } from '@/components/content/editorial-listing';
 
 export const metadata: Metadata = {
   title: 'Features',
   description:
-    'Longform essays, interviews, and deep dives into pop culture worlds, creators, and fan communities.',
+    'Longform features and analysis across entertainment, fandom, and collector culture.',
 };
 
 export default function FeaturesPage() {
   return (
-    <PageShell
-      eyebrow="Features"
+    <EditorialListing
+      section="features"
       title="Features"
-      description="Longform essays, interviews, and deep dives into the stories, creators, and communities shaping fandom culture."
+      description="Longform stories, analysis, and culture reporting for readers who want deeper context beyond the headlines."
     />
   );
 }
