@@ -1,12 +1,24 @@
-import type { ReactNode } from 'react';
+import type { ComponentPropsWithoutRef, ElementType, ReactNode } from 'react';
 
 import { cn } from '@/lib/cn';
 
-type CardShellProps = {
+type CardShellProps<T extends ElementType = 'div'> = {
+  as?: T;
   children: ReactNode;
   className?: string;
-};
+} & Omit<ComponentPropsWithoutRef<T>, 'as' | 'children' | 'className'>;
 
-export function CardShell({ children, className }: CardShellProps) {
-  return <article className={cn('card-shell', className)}>{children}</article>;
+export function CardShell<T extends ElementType = 'div'>({
+  as,
+  children,
+  className,
+  ...props
+}: CardShellProps<T>) {
+  const Component = as ?? 'div';
+
+  return (
+    <Component className={cn('card-shell', className)} {...props}>
+      {children}
+    </Component>
+  );
 }
