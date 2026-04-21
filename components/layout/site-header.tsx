@@ -65,39 +65,38 @@ export function SiteHeader() {
         </nav>
       </Container>
 
-      <div
-        className={cn('mobile-panel', mobileOpen && 'mobile-panel--open')}
-        id="mobile-primary-nav"
-      >
-        <Container>
-          <nav aria-label="Mobile primary" className="site-nav">
-            <ul className="mobile-nav__list">
-              {primaryNav.map((item) => {
-                const isActive =
-                  item.href === '/'
-                    ? pathname === '/'
-                    : pathname
-                      ? pathname.startsWith(item.href)
-                      : false;
+      {mobileOpen ? (
+        <div className={cn('mobile-panel', 'mobile-panel--open')} id="mobile-primary-nav">
+          <Container>
+            <nav aria-label="Mobile primary" className="site-nav">
+              <ul className="mobile-nav__list">
+                {primaryNav.map((item) => {
+                  const isActive =
+                    item.href === '/'
+                      ? pathname === '/'
+                      : pathname
+                        ? pathname.startsWith(item.href)
+                        : false;
 
-                return (
-                  <li key={item.href}>
-                    <Link
-                      aria-current={isActive ? 'page' : undefined}
-                      className={cn('mobile-nav__link', isActive && 'mobile-nav__link--active')}
-                      href={item.href}
-                      onClick={() => setMobileOpen(false)}
-                    >
-                      <span>{item.label}</span>
-                      <span className="mobile-nav__description">{item.description}</span>
-                    </Link>
-                  </li>
-                );
-              })}
-            </ul>
-          </nav>
-        </Container>
-      </div>
+                  return (
+                    <li key={item.href}>
+                      <Link
+                        aria-current={isActive ? 'page' : undefined}
+                        className={cn('mobile-nav__link', isActive && 'mobile-nav__link--active')}
+                        href={item.href}
+                        onClick={() => setMobileOpen(false)}
+                      >
+                        <span>{item.label}</span>
+                        <span className="mobile-nav__description">{item.description}</span>
+                      </Link>
+                    </li>
+                  );
+                })}
+              </ul>
+            </nav>
+          </Container>
+        </div>
+      ) : null}
     </header>
   );
 }
