@@ -1,19 +1,13 @@
 import type { Metadata } from 'next';
 
-import { PageShell } from '@/components/layout/page-shell';
+import { StoreLanding } from '@/components/store/store-landing';
 
 export const metadata: Metadata = {
   title: 'Store',
   description:
-    'Collector-focused product discovery with room for future product detail pages and commerce integrations.',
+    'Curated fandom products and collectible drops with structured data and room for future checkout integrations.',
 };
 
 export default function StorePage() {
-  return (
-    <PageShell
-      eyebrow="Store"
-      title="Store"
-      description="Collector-focused picks and product discovery, with a clean structure that can grow into richer storefront experiences."
-    />
-  );
+  return <StoreLanding />;
 }
