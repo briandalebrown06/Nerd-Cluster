@@ -20,8 +20,6 @@ pnpm-debug.log*
 
 # local env files
 .env*.local
+
 # typescript
 *.tsbuildinfo
-
-# next.js auto-generated
-next-env.d.ts

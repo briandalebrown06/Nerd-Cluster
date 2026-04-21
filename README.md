@@ -2,10 +2,9 @@
 
 Nerd Cluster is a polished entertainment, fandom, pop-culture, and collector-focused editorial website.
 
-## Milestone status
+## Milestone 0 status
 
-- ✅ Milestone 0: stack and tooling foundation
-- ✅ Milestone 1: global layout and core route structure
+This repository now contains a clean Next.js + TypeScript + Tailwind foundation with a minimal design system, content model types, and documentation for low-chaos growth.
 
 ## Quick start
 
@@ -39,21 +38,9 @@ npm run build
 - `npm run format` — apply Prettier formatting
 - `npm run format:check` — check formatting
 
-## Route foundation (Milestone 1)
-
-- `/` Home
-- `/news`
-- `/reviews`
-- `/features`
-- `/store`
-- `/about`
-- `/contact`
-- `app/not-found.tsx` — 404 fallback UI (App Router convention, not a direct route)
-
 ## Project structure
 
-- `app/` — App Router pages and global layout
-- `components/layout/` — site-wide shell and page wrappers
+- `app/` — route and layout foundation
 - `components/ui/` — reusable UI primitives
 - `content/` — section-based content directories
 - `lib/` — utilities and shared types
