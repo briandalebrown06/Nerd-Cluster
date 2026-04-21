@@ -1,47 +1,43 @@
+import { BrandVoiceCta } from '@/components/home/brand-voice-cta';
+import { FeaturedReview } from '@/components/home/featured-review';
+import { HomeHero } from '@/components/home/home-hero';
+import { HomeRail } from '@/components/home/home-rail';
+import { StorySection } from '@/components/home/story-section';
 import { Container } from '@/components/ui/container';
-import { SectionHeading } from '@/components/ui/section-heading';
-
-const pillars = [
-  'Entertainment',
-  'Fandom',
-  'Pop Culture',
-  'Collecting',
-  'Editorial Features',
-] as const;
+import {
+  featuredReview,
+  heroFeature,
+  latestFeatures,
+  latestNews,
+  storeTeasers,
+  trendingTopics,
+} from '@/lib/homepage-content';
 
 export default function HomePage() {
   return (
-    <main id="main-content">
-      <section className="hero-shell">
-        <Container>
-          <p className="hero-eyebrow">Nerd Cluster</p>
-          <h1 className="hero-title">
-            A modern culture magazine for fans, collectors, and obsessives.
-          </h1>
-          <p className="hero-description">
-            This foundation milestone establishes the brand tone, visual rhythm, and scalable
-            architecture that future sections will build on.
-          </p>
-        </Container>
-      </section>
+    <main id="main-content" className="page-shell home-page">
+      <Container className="home-stack">
+        <HomeHero feature={heroFeature} />
 
-      <section className="section-shell">
-        <Container>
-          <SectionHeading
-            eyebrow="Foundation"
-            title="What this baseline is optimizing for"
-            description="Strong editorial hierarchy, future CMS portability, and clean modular growth."
+        <StorySection
+          eyebrow="Latest"
+          title="News That Moves the Conversation"
+          stories={latestNews}
+        />
+
+        <div className="home-two-column">
+          <StorySection
+            eyebrow="Deep Reads"
+            title="Features with Long-View Context"
+            stories={latestFeatures}
+            className="home-two-column__main"
           />
+          <HomeRail trendingTopics={trendingTopics} products={storeTeasers} />
+        </div>
 
-          <ul className="pill-grid" aria-label="Editorial pillars">
-            {pillars.map((pillar) => (
-              <li key={pillar} className="pill-card">
-                {pillar}
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </section>
+        <FeaturedReview review={featuredReview} />
+        <BrandVoiceCta />
+      </Container>
     </main>
   );
 }
