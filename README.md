@@ -48,7 +48,7 @@ npm run build
 - `/store`
 - `/about`
 - `/contact`
-- `not-found` fallback page
+- `app/not-found.tsx` — 404 fallback UI (App Router convention, not a direct route)
 
 ## Project structure
 
