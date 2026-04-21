@@ -1,0 +1,32 @@
+:where(a, button, input, textarea, select):focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(109, 224, 255, 0.2);
+}
+
+:where(button, [role='button']) {
+  cursor: pointer;
+}
+
+.contact-form-status {
+  margin: 0 0 0.95rem;
+  border: 1px solid rgba(177, 140, 255, 0.36);
+  border-radius: 0.75rem;
+  background: rgba(177, 140, 255, 0.12);
+  padding: 0.8rem;
+}
+
+.contact-form-status p {
+  margin: 0;
+  color: #e9ddff;
+  line-height: 1.6;
+  font-size: 0.88rem;
+}
+
+.contact-form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  display: grid;
+  gap: 0.8rem;
+}

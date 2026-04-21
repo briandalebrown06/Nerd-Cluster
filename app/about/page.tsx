@@ -33,6 +33,9 @@ export const metadata: Metadata = {
   title: 'About',
   description:
     'Learn what Nerd Cluster covers, why it exists, and the editorial personality behind the brand.',
+  alternates: {
+    canonical: '/about',
+  },
 };
 
 export default function AboutPage() {

@@ -1,3 +1,6 @@
+import { getEntriesBySection, formatPublishedDate, getEntryAuthorName } from '@/lib/content/entries';
+import { getFeaturedStoreProducts } from '@/lib/store/products';
+
 export type StoryCard = {
   title: string;
   category: string;
@@ -13,77 +16,62 @@ export type ProductTeaser = {
   href: string;
 };
 
-export const heroFeature: StoryCard = {
-  title: 'Inside the New Wave of Sci-Fi Fandom Communities',
-  category: 'Feature Spotlight',
-  excerpt:
-    'From midnight screenings to custom collector builds, fan-driven communities are redefining how stories live beyond the screen.',
-  href: '/features',
-  meta: 'By Staff • 8 min read',
-};
+function toStoryCard(entry: {
+  title: string;
+  categories: string[];
+  excerpt: string;
+  slug: string;
+  section: 'news' | 'reviews' | 'features';
+  publishedAt: string;
+  authorId: string;
+  readingTimeMinutes?: number;
+}): StoryCard {
+  return {
+    title: entry.title,
+    category: entry.categories[0] ?? 'Editorial',
+    excerpt: entry.excerpt,
+    href: `/${entry.section}/${entry.slug}`,
+    meta: `${formatPublishedDate(entry.publishedAt)} • ${getEntryAuthorName(entry.authorId)}${entry.readingTimeMinutes ? ` • ${entry.readingTimeMinutes} min read` : ''}`,
+  };
+}
 
-export const latestNews: StoryCard[] = [
-  {
-    title: 'Major Comic-Con Panels Announced for Summer Season',
-    category: 'Events',
-    excerpt:
-      'Studios and creators line up franchise reveals, behind-the-scenes discussions, and exclusive previews.',
-    href: '/news',
-    meta: '2 hours ago',
-  },
-  {
-    title: 'Collector Figure Line Expands with Limited Variant Run',
-    category: 'Collectibles',
-    excerpt:
-      'A new premium wave targets long-time collectors with alternate paint editions and numbered releases.',
-    href: '/news',
-    meta: 'Today',
-  },
-  {
-    title: 'Streaming Slate Reveals Three New Genre Anthologies',
-    category: 'Streaming',
-    excerpt:
-      'Platform executives revealed creator-led anthology projects set to debut across the next two quarters.',
-    href: '/news',
-    meta: 'Yesterday',
-  },
-];
+const news = getEntriesBySection('news');
+const features = getEntriesBySection('features');
+const reviews = getEntriesBySection('reviews');
 
-export const featuredReview: StoryCard = {
-  title: 'Review: Eclipse Protocol Is Smart, Stylish, and Surprisingly Emotional',
-  category: 'Featured Review',
-  excerpt:
-    'A bold sci-fi thriller that balances tactical gameplay with character-driven stakes, rewarding patient, curious players.',
-  href: '/reviews',
-  meta: 'Score: 8.8 / 10',
-};
+const featureLead = features[0];
+const featuredReviewEntry = reviews[0];
 
-export const latestFeatures: StoryCard[] = [
-  {
-    title: 'How Practical Effects Are Winning Back Modern Creature Cinema',
-    category: 'Craft',
-    excerpt:
-      'Filmmakers are blending analog techniques with digital polish to restore texture and weight on-screen.',
-    href: '/features',
-    meta: 'Feature',
-  },
-  {
-    title: 'The New Rules of Franchise Lore in the Streaming Era',
-    category: 'Analysis',
-    excerpt:
-      'Shared universes now move at platform speed, reshaping how audiences follow canon and continuity.',
-    href: '/features',
-    meta: 'Analysis',
-  },
-  {
-    title: 'From Shelf to Spotlight: Building a Collection with Story Value',
-    category: 'Collector Guide',
-    excerpt:
-      'A practical framework for choosing pieces that balance aesthetics, rarity, and long-term cultural significance.',
-    href: '/features',
-    meta: 'Guide',
-  },
-];
+export const heroFeature: StoryCard = featureLead
+  ? {
+      ...toStoryCard(featureLead),
+      category: 'Feature Spotlight',
+    }
+  : {
+      title: 'Feature spotlight coming soon',
+      category: 'Feature Spotlight',
+      excerpt: 'A new longform feature will be highlighted here shortly.',
+      href: '/features',
+      meta: 'Nerd Cluster Staff',
+    };
+
+export const latestNews: StoryCard[] = news.slice(0, 3).map(toStoryCard);
+
+export const featuredReview: StoryCard = featuredReviewEntry
+  ? {
+      ...toStoryCard(featuredReviewEntry),
+      category: 'Featured Review',
+      meta: `Score: ${featuredReviewEntry.score.toFixed(1)} / 10 • ${formatPublishedDate(featuredReviewEntry.publishedAt)}`,
+    }
+  : {
+      title: 'Featured review coming soon',
+      category: 'Featured Review',
+      excerpt: 'Our editors are preparing the next review spotlight now.',
+      href: '/reviews',
+      meta: 'Nerd Cluster Reviews',
+    };
+
+export const latestFeatures: StoryCard[] = features.slice(0, 3).map(toStoryCard);
 
 export const trendingTopics = [
   'Retro game remaster season',
@@ -93,23 +81,9 @@ export const trendingTopics = [
   'Horror universe timeline debates',
 ];
 
-export const storeTeasers: ProductTeaser[] = [
-  {
-    name: 'Nerd Cluster Collector Tee',
-    category: 'Apparel',
-    price: '$32',
-    href: '/store',
-  },
-  {
-    name: 'Arcade Nights Art Print Set',
-    category: 'Prints',
-    price: '$48',
-    href: '/store',
-  },
-  {
-    name: 'Signal Wave Enamel Pin Pack',
-    category: 'Accessories',
-    price: '$18',
-    href: '/store',
-  },
-];
+export const storeTeasers: ProductTeaser[] = getFeaturedStoreProducts(3).map((product) => ({
+  name: product.name,
+  category: product.category,
+  price: product.price,
+  href: `/store/${product.slug}`,
+}));

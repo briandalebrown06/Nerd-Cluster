@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: 'News',
   description:
     'Breaking stories and editorially curated updates from fandom and entertainment culture.',
+  alternates: {
+    canonical: '/news',
+  },
 };
 
 export default function NewsPage() {

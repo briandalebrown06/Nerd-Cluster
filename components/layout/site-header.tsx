@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useId, useRef, useState } from 'react';
 
 import { NerdClusterLogo } from '@/components/brand/nerd-cluster-logo';
 import { Container } from '@/components/ui/container';
@@ -12,6 +12,30 @@ import { primaryNav } from '@/lib/site-navigation';
 export function SiteHeader() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const navId = useId();
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const firstMobileLinkRef = useRef<HTMLAnchorElement>(null);
+
+  useEffect(() => {
+    if (!mobileOpen) {
+      return;
+    }
+
+    firstMobileLinkRef.current?.focus();
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setMobileOpen(false);
+        toggleRef.current?.focus();
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+
+    return () => {
+      window.removeEventListener('keydown', handleEscape);
+    };
+  }, [mobileOpen]);
 
   return (
     <header className="site-header">
@@ -30,9 +54,11 @@ export function SiteHeader() {
         </Link>
 
         <button
+          ref={toggleRef}
           className="mobile-menu-toggle"
           aria-expanded={mobileOpen}
-          aria-controls="mobile-primary-nav"
+          aria-controls={navId}
+          aria-haspopup="menu"
           onClick={() => setMobileOpen((open) => !open)}
           type="button"
         >
@@ -66,11 +92,11 @@ export function SiteHeader() {
       </Container>
 
       {mobileOpen ? (
-        <div className={cn('mobile-panel', 'mobile-panel--open')} id="mobile-primary-nav">
+        <div className={cn('mobile-panel', 'mobile-panel--open')} id={navId}>
           <Container>
             <nav aria-label="Mobile primary" className="site-nav">
-              <ul className="mobile-nav__list">
-                {primaryNav.map((item) => {
+              <ul className="mobile-nav__list" role="menu">
+                {primaryNav.map((item, index) => {
                   const isActive =
                     item.href === '/'
                       ? pathname === '/'
@@ -81,10 +107,12 @@ export function SiteHeader() {
                   return (
                     <li key={item.href}>
                       <Link
+                        ref={index === 0 ? firstMobileLinkRef : undefined}
                         aria-current={isActive ? 'page' : undefined}
                         className={cn('mobile-nav__link', isActive && 'mobile-nav__link--active')}
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
+                        role="menuitem"
                       >
                         <span>{item.label}</span>
                         <span className="mobile-nav__description">{item.description}</span>

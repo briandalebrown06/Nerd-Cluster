@@ -23,6 +23,21 @@ export async function generateMetadata({
   return {
     title: entry.title,
     description: entry.excerpt,
+    alternates: {
+      canonical: `/features/${entry.slug}`,
+    },
+    openGraph: {
+      type: 'article',
+      title: entry.title,
+      description: entry.excerpt,
+      url: `/features/${entry.slug}`,
+      publishedTime: entry.publishedAt,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: entry.title,
+      description: entry.excerpt,
+    },
   };
 }
 

@@ -12,10 +12,14 @@ function sortEntries<T extends EditorialEntry>(entries: T[]): T[] {
   return [...entries].sort((a, b) => (a.publishedAt < b.publishedAt ? 1 : -1));
 }
 
+function filterPublished<T extends EditorialEntry>(entries: T[]): T[] {
+  return entries.filter((entry) => entry.status === 'published');
+}
+
 const sectionMap = {
-  news: sortEntries(newsEntries),
-  reviews: sortEntries(reviewEntries),
-  features: sortEntries(featureEntries),
+  news: sortEntries(filterPublished(newsEntries)),
+  reviews: sortEntries(filterPublished(reviewEntries)),
+  features: sortEntries(filterPublished(featureEntries)),
 };
 
 export function getEntriesBySection<TSection extends EditorialSection>(
