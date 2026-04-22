@@ -13,7 +13,8 @@ export function SiteFooter() {
           <div>
             <p className="site-footer__brand">Nerd Cluster</p>
             <p className="site-footer__tagline">
-              A cinematic editorial destination for entertainment, fandom, and collector culture.
+              A cinematic editorial hub for people who care about stories, craft, and what belongs
+              on the shelf.
             </p>
           </div>
         </section>
@@ -30,7 +31,7 @@ export function SiteFooter() {
         </section>
 
         <section>
-          <h2 className="site-footer__heading">Editorial</h2>
+          <h2 className="site-footer__heading">Front Page Lanes</h2>
           <ul className="site-footer__links">
             {footerEditorialLinks.map((item) => (
               <li key={item.href}>
@@ -41,16 +42,17 @@ export function SiteFooter() {
         </section>
 
         <section>
-          <h2 className="site-footer__heading">Next channels</h2>
-          <ul className="site-footer__chips" aria-label="Upcoming channel roadmap">
+          <h2 className="site-footer__heading">Signal Lane</h2>
+          <ul className="site-footer__chips" aria-label="Upcoming channels in launch queue">
             {futureChannels.map((channel) => (
               <li key={channel} className="site-footer__chip">
-                {channel} <span className="site-footer__chip-note">Coming soon</span>
+                {channel} <span className="site-footer__chip-note">In rollout</span>
               </li>
             ))}
           </ul>
           <p className="site-footer__note">
-            These areas are planned and intentionally marked as in-progress, not yet live features.
+            More channels are being staged carefully so the experience stays clean, curated, and
+            high-signal.
           </p>
         </section>
       </Container>

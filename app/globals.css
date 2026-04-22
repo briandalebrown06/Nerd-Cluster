@@ -76,10 +76,34 @@ main {
   margin-inline: auto;
 }
 
-.site-header {
+.site-header-wrap {
   position: sticky;
   top: 0;
   z-index: 40;
+}
+
+.cluster-status-bar {
+  border-bottom: 1px solid rgba(109, 224, 255, 0.12);
+  backdrop-filter: blur(14px);
+  background: rgba(9, 11, 19, 0.92);
+}
+
+.cluster-status-bar__inner {
+  min-height: 2.1rem;
+  display: flex;
+  gap: 0.6rem 1.2rem;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  font-size: 0.72rem;
+  color: #d0def7;
+}
+
+.cluster-status-bar__inner p {
+  margin: 0;
+}
+
+.site-header {
   backdrop-filter: blur(14px);
   background: rgba(9, 11, 19, 0.82);
   border-bottom: 1px solid rgba(109, 224, 255, 0.18);
@@ -109,6 +133,7 @@ main {
   width: 2.2rem;
   height: 2.2rem;
   border-radius: 999px;
+  object-fit: cover;
   box-shadow: 0 0 0 1px rgba(109, 224, 255, 0.35);
 }
 
@@ -356,6 +381,10 @@ main {
   gap: clamp(2.2rem, 4vw, 3.4rem);
 }
 
+.home-launch .home-section {
+  padding-bottom: clamp(2rem, 3vw, 2.8rem);
+}
+
 .home-hero {
   display: grid;
   gap: 1rem;
@@ -376,6 +405,10 @@ main {
   gap: 0.85rem;
 }
 
+.home-hero__lead--launch {
+  gap: 1rem;
+}
+
 .home-hero__title {
   margin: 0;
   font-size: clamp(1.9rem, 4vw, 3.3rem);
@@ -386,6 +419,12 @@ main {
 .home-hero__aside {
   display: grid;
   gap: 0.65rem;
+}
+
+.home-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
 }
 
 .home-hero__aside-copy {
@@ -400,6 +439,33 @@ main {
   margin: 0;
   color: #c7d0e7;
   font-size: 0.8rem;
+}
+
+.tonight-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.tonight-list li {
+  border: 1px solid var(--border);
+  border-radius: 0.7rem;
+  background: rgba(24, 29, 45, 0.58);
+  padding: 0.65rem 0.75rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.tonight-list span {
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+
+.tonight-list strong {
+  font-size: 0.92rem;
+  color: #edf6ff;
 }
 
 .home-card-grid,
@@ -505,6 +571,10 @@ main {
   gap: 0.75rem;
 }
 
+.store-teaser-grid--spotlight {
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
 .store-teaser-card {
   display: grid;
   gap: 0.55rem;
@@ -520,6 +590,10 @@ main {
   gap: 0.95rem;
 }
 
+.featured-review--launch .featured-review__title {
+  font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
 .brand-voice-cta {
   display: grid;
   gap: 1rem;
@@ -529,6 +603,45 @@ main {
   display: grid;
   gap: 0.65rem;
   align-content: start;
+}
+
+.brand-voice-cta--newsletter {
+  background:
+    linear-gradient(145deg, rgba(109, 224, 255, 0.12), rgba(177, 140, 255, 0.12)),
+    linear-gradient(180deg, rgba(17, 21, 35, 0.98), rgba(17, 21, 35, 0.82));
+}
+
+.franchise-takeover,
+.about-strip {
+  padding: clamp(1rem, 2.5vw, 1.4rem);
+  display: grid;
+  gap: 0.9rem;
+}
+
+.franchise-points {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.58rem;
+}
+
+.franchise-points li {
+  border-left: 2px solid rgba(109, 224, 255, 0.48);
+  padding-left: 0.72rem;
+  color: #dbe6ff;
+}
+
+.podcast-lane-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.9rem;
+}
+
+.podcast-lane-card {
+  padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
 }
 
 .editorial-page,
