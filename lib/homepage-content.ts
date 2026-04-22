@@ -1,4 +1,8 @@
-import { getEntriesBySection, formatPublishedDate, getEntryAuthorName } from '@/lib/content/entries';
+import {
+  getEntriesBySection,
+  formatPublishedDate,
+  getEntryAuthorName,
+} from '@/lib/content/entries';
 import { getFeaturedStoreProducts } from '@/lib/store/products';
 
 export type StoryCard = {
@@ -55,8 +59,8 @@ const heroLead = features[0] ?? reviews[0] ?? news[0];
 const featuredReviewEntry = reviews[0];
 
 export const clusterStatus = {
-  theme: 'Theme: Creature Craft, Lore Maps, and Midnight Releases',
-  pulse: 'Status: Live now with fresh dispatches and collector radar',
+  theme: 'Theme: Cinematic worlds, franchise lore, and collector heat checks',
+  pulse: 'Status: Live editorial desk with fresh drops across News, Reviews, and Features',
 };
 
 export const heroSpotlight = heroLead
@@ -76,10 +80,16 @@ export const heroSpotlight = heroLead
     };
 
 export const tonightInCluster: TonightItem[] = [
-  { label: 'New stories tonight', value: String(Math.min(news.length + features.length + reviews.length, 9)) },
+  {
+    label: 'Stories live tonight',
+    value: String(Math.min(news.length + features.length + reviews.length, 9)),
+  },
   { label: 'Franchise in focus', value: 'Signal Universe' },
   { label: 'Collector watch', value: 'Deluxe variants + steelbook chatter' },
-  { label: 'Now playing in reviews', value: featuredReviewEntry?.title ?? 'Fresh review incoming' },
+  {
+    label: 'Review desk now playing',
+    value: featuredReviewEntry?.title ?? 'Fresh review incoming',
+  },
 ];
 
 export const latestNews: StoryCard[] = news.slice(0, 3).map(toStoryCard);
@@ -122,7 +132,8 @@ export const podcastVideoLane: PodcastLaneItem[] = [
     title: 'Shelf Control',
     format: 'Video',
     status: 'Studio setup in progress',
-    description: 'Collector-focused breakdowns on display design, premium drops, and practical buying strategy.',
+    description:
+      'Collector-focused breakdowns on display design, premium drops, and practical buying strategy.',
   },
   {
     title: 'After-Credits Room',

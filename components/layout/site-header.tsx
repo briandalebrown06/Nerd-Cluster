@@ -55,10 +55,12 @@ export function SiteHeader() {
             aria-label="Nerd Cluster home"
             onClick={() => setMobileOpen(false)}
           >
-            <NerdClusterLogo className="brand-cluster__logo" />
+            <NerdClusterLogo className="brand-cluster__logo" priority />
             <span className="brand-cluster__text-wrap">
               <span className="brand-cluster__name">Nerd Cluster</span>
-              <span className="brand-cluster__tagline">Entertainment • Fandom • Collector Culture</span>
+              <span className="brand-cluster__tagline">
+                Entertainment • Fandom • Collector Culture
+              </span>
             </span>
           </Link>
 

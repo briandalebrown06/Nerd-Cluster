@@ -26,12 +26,15 @@ export const metadata: Metadata = {
 };
 
 export default function HomePage() {
+  const leadNews = latestNews[0];
+  const secondaryNews = latestNews.slice(1);
+
   return (
     <main id="main-content" className="page-shell home-page">
       <Container className="home-stack home-launch">
         <section className="home-hero" aria-labelledby="home-hero-title">
           <div className="home-hero__lead home-hero__lead--launch">
-            <p className="home-kicker">{heroSpotlight.label}</p>
+            <p className="home-kicker">Launch Spotlight</p>
             <h1 id="home-hero-title" className="home-hero__title">
               {heroSpotlight.title}
             </h1>
@@ -41,8 +44,8 @@ export default function HomePage() {
               <Link className="button-link" href={heroSpotlight.href}>
                 {heroSpotlight.cta}
               </Link>
-              <Link className="button-link button-link--subtle" href="/news">
-                Open the Newsfeed
+              <Link className="button-link button-link--subtle" href="/features">
+                Browse Features
               </Link>
             </div>
           </div>
@@ -61,24 +64,43 @@ export default function HomePage() {
         </section>
 
         <section className="home-section" aria-labelledby="latest-news-title">
-          <p className="home-kicker">Latest News</p>
-          <h2 id="latest-news-title" className="home-section__title">
-            Fresh Dispatches from Across the Cluster
-          </h2>
-          <div className="home-card-grid">
-            {latestNews.map((story) => (
-              <CardShell key={story.title} className="story-card">
-                <p className="story-card__category">{story.category}</p>
-                <h3 className="story-card__title">{story.title}</h3>
-                <p className="story-card__excerpt">{story.excerpt}</p>
+          <div className="home-section__header">
+            <p className="home-kicker">Latest News</p>
+            <h2 id="latest-news-title" className="home-section__title">
+              Breaking updates, confirmed rumors, and fresh production heat
+            </h2>
+          </div>
+
+          <div className="news-command-grid">
+            {leadNews ? (
+              <CardShell className="story-card story-card--lead">
+                <p className="story-card__category">{leadNews.category}</p>
+                <h3 className="story-card__title">{leadNews.title}</h3>
+                <p className="story-card__excerpt">{leadNews.excerpt}</p>
                 <div className="story-card__footer">
-                  <span className="home-meta">{story.meta}</span>
-                  <Link className="story-card__link" href={story.href}>
+                  <span className="home-meta">{leadNews.meta}</span>
+                  <Link className="story-card__link" href={leadNews.href}>
                     Read Story
                   </Link>
                 </div>
               </CardShell>
-            ))}
+            ) : null}
+
+            <div className="news-command-grid__stack">
+              {secondaryNews.map((story) => (
+                <CardShell key={story.title} className="story-card">
+                  <p className="story-card__category">{story.category}</p>
+                  <h3 className="story-card__title">{story.title}</h3>
+                  <p className="story-card__excerpt">{story.excerpt}</p>
+                  <div className="story-card__footer">
+                    <span className="home-meta">{story.meta}</span>
+                    <Link className="story-card__link" href={story.href}>
+                      Read Story
+                    </Link>
+                  </div>
+                </CardShell>
+              ))}
+            </div>
           </div>
         </section>
 
@@ -120,7 +142,7 @@ export default function HomePage() {
         <section className="home-section" aria-labelledby="from-blog-title">
           <p className="home-kicker">From the Blog</p>
           <h2 id="from-blog-title" className="home-section__title">
-            Features, Deep Dives, and Long-View Nerd Thinking
+            Deep dives, craft breakdowns, and fandom analysis with perspective
           </h2>
           <div className="home-card-grid">
             {fromBlog.map((story) => (
@@ -142,7 +164,7 @@ export default function HomePage() {
         <section className="home-section" aria-labelledby="podcast-video-title">
           <p className="home-kicker">Podcast / Video Lane</p>
           <h2 id="podcast-video-title" className="home-section__title">
-            What&apos;s Rolling into the Signal Lane
+            On-deck shows and studio formats entering the rotation
           </h2>
           <div className="podcast-lane-grid">
             {podcastVideoLane.map((item) => (
@@ -159,7 +181,7 @@ export default function HomePage() {
         <section className="home-section" aria-labelledby="store-spotlight-title">
           <p className="home-kicker">Store Spotlight</p>
           <h2 id="store-spotlight-title" className="home-section__title">
-            Collector Picks with Real Shelf Presence
+            Shelf-worthy picks for display-minded collectors
           </h2>
           <div className="store-teaser-grid store-teaser-grid--spotlight">
             {storeSpotlight.map((product) => (
@@ -178,7 +200,7 @@ export default function HomePage() {
         <section className="home-section" aria-labelledby="newsletter-title">
           <CardShell className="brand-voice-cta brand-voice-cta--newsletter">
             <div>
-              <p className="home-kicker">Newsletter CTA</p>
+              <p className="home-kicker">Cluster Signal</p>
               <h2 id="newsletter-title" className="home-section__title">
                 {newsletterCta.title}
               </h2>
