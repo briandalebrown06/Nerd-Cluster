@@ -1,10 +1,7 @@
-<<<<<<< HEAD
-=======
 export type PublishingStatus = 'draft' | 'published';
 
 export type EditorialSection = 'news' | 'reviews' | 'features';
 
->>>>>>> 4a13034e25afd14ef80a122076e26e37ff64a710
 export type AuthorMeta = {
   id: string;
   name: string;
@@ -13,11 +10,8 @@ export type AuthorMeta = {
   bio?: string;
 };
 
-<<<<<<< HEAD
-=======
 export type Author = AuthorMeta;
 
->>>>>>> 4a13034e25afd14ef80a122076e26e37ff64a710
 export type ArticleMeta = {
   title: string;
   slug: string;
@@ -28,24 +22,6 @@ export type ArticleMeta = {
   tags: string[];
   featuredImage: string;
   readingTimeMinutes?: number;
-<<<<<<< HEAD
-  status: 'draft' | 'published';
-};
-
-export type ReviewMeta = ArticleMeta & {
-  score?: number;
-  platform?: string[];
-};
-
-export type ProductMeta = {
-  name: string;
-  slug: string;
-  price: string;
-  category: string;
-  image: string;
-  externalUrl?: string;
-  inStock: boolean;
-=======
   status: PublishingStatus;
 };
 
@@ -94,5 +70,4 @@ export type ProductMeta = {
   externalUrl?: string;
   ctaLabel?: string;
   tags: string[];
->>>>>>> 4a13034e25afd14ef80a122076e26e37ff64a710
 };
