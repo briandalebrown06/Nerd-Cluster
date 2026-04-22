@@ -8,37 +8,37 @@ export const primaryNav: NavItem[] = [
   {
     href: '/',
     label: 'Home',
-    description: 'Front page and featured coverage',
+    description: 'Editorial front page',
   },
   {
     href: '/news',
     label: 'News',
-    description: 'Breaking stories and updates',
+    description: 'Breaking stories and live updates',
   },
   {
     href: '/reviews',
     label: 'Reviews',
-    description: 'Critiques for games, shows, and media',
+    description: 'Sharp verdicts and scorecards',
   },
   {
     href: '/features',
-    label: 'Features',
-    description: 'Deep dives, essays, and creator spotlights',
+    label: 'Blog',
+    description: 'Features, essays, and deep dives',
   },
   {
     href: '/store',
     label: 'Store',
-    description: 'Collector-focused picks and merch',
+    description: 'Collector-focused product drops',
   },
   {
     href: '/about',
     label: 'About',
-    description: 'Who we are and what we cover',
+    description: 'Our voice and editorial mission',
   },
   {
     href: '/contact',
     label: 'Contact',
-    description: 'Editorial and partnership contact',
+    description: 'Editorial and partnership lines',
   },
 ];
 
@@ -49,21 +49,16 @@ export const footerEditorialLinks = [
   },
   {
     href: '/reviews',
-    label: 'Recent Reviews',
+    label: 'Featured Reviews',
   },
   {
     href: '/features',
-    label: 'Featured Stories',
+    label: 'From the Blog',
   },
   {
     href: '/store',
-    label: 'Collector Store',
+    label: 'Store Spotlight',
   },
 ];
 
-export const futureChannels = [
-  'Newsletter',
-  'Podcast',
-  'Contributor Network',
-  'Social Channels',
-] as const;
+export const futureChannels = ['Newsletter', 'Podcast', 'Video Lane', 'Search'] as const;
