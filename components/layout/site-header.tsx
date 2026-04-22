@@ -7,7 +7,10 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { NerdClusterLogo } from '@/components/brand/nerd-cluster-logo';
 import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/cn';
+<<<<<<< HEAD
 import { clusterStatus } from '@/lib/homepage-content';
+=======
+>>>>>>> f627431394e325825967a6591acb665de4d36f57
 import { primaryNav } from '@/lib/site-navigation';
 
 export function SiteHeader() {
@@ -32,21 +35,11 @@ export function SiteHeader() {
     };
 
     window.addEventListener('keydown', handleEscape);
-
-    return () => {
-      window.removeEventListener('keydown', handleEscape);
-    };
+    return () => window.removeEventListener('keydown', handleEscape);
   }, [mobileOpen]);
 
   return (
     <header className="site-header-wrap">
-      <div className="cluster-status-bar" aria-label="Theme and launch status">
-        <Container className="cluster-status-bar__inner">
-          <p>{clusterStatus.theme}</p>
-          <p>{clusterStatus.pulse}</p>
-        </Container>
-      </div>
-
       <div className="site-header">
         <Container className="site-header__inner">
           <Link
@@ -58,9 +51,7 @@ export function SiteHeader() {
             <NerdClusterLogo className="brand-cluster__logo" priority />
             <span className="brand-cluster__text-wrap">
               <span className="brand-cluster__name">Nerd Cluster</span>
-              <span className="brand-cluster__tagline">
-                Entertainment • Fandom • Collector Culture
-              </span>
+              <span className="brand-cluster__tagline">Midnight Edition</span>
             </span>
           </Link>
 
@@ -103,7 +94,7 @@ export function SiteHeader() {
       </div>
 
       {mobileOpen ? (
-        <div className={cn('mobile-panel', 'mobile-panel--open')} id={navId}>
+        <div className="mobile-panel" id={navId}>
           <Container>
             <nav aria-label="Mobile primary" className="site-nav">
               <ul className="mobile-nav__list">

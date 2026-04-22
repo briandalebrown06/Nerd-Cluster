@@ -61,4 +61,8 @@ export const footerEditorialLinks = [
   },
 ];
 
+<<<<<<< HEAD
 export const futureChannels = ['Newsletter', 'Podcast', 'Video Lane', 'Search'] as const;
+=======
+export const futureChannels = ['Newsletter', 'Podcast', 'Video Lane', 'Search'] as const;
+>>>>>>> f627431394e325825967a6591acb665de4d36f57
