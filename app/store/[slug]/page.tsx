@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { StoreProductDetail } from '@/components/store/store-product-detail';
+import { buildDetailMetadata } from '@/lib/metadata';
 import { getStoreProductBySlug, getStoreProducts } from '@/lib/store/products';
 
 type StoreProductPageProps = {
@@ -18,24 +19,12 @@ export async function generateMetadata({ params }: StoreProductPageProps): Promi
     };
   }
 
-  return {
+  return buildDetailMetadata({
     title: `${product.name} | Store`,
     description: product.tagline,
-    alternates: {
-      canonical: `/store/${product.slug}`,
-    },
-    openGraph: {
-      type: 'website',
-      title: `${product.name} | Store`,
-      description: product.tagline,
-      url: `/store/${product.slug}`,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: `${product.name} | Store`,
-      description: product.tagline,
-    },
-  };
+    pathname: `/store/${product.slug}`,
+    type: 'website',
+  });
 }
 
 export function generateStaticParams() {
