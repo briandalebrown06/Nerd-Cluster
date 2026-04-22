@@ -61,4 +61,25 @@ export const newsEntries: EditorialEntry[] = [
       'For editorial sites, this format creates an opportunity for richer weekly coverage that mixes criticism, analysis, and fan-context reporting.',
     ],
   },
+  {
+    id: 'news-draft-collector-market-forecast',
+    section: 'news',
+    title: 'Collector Market Forecast: What Summer Waves Might Look Like',
+    slug: 'collector-market-forecast-summer-waves',
+    excerpt:
+      'Early channel chatter suggests summer product waves may pivot toward smaller serialized drops.',
+    publishedAt: '2026-04-22',
+    authorId: 'maya-lane',
+    categories: ['Collectibles'],
+    tags: ['market', 'forecast', 'draft'],
+    featuredImage: 'Draft board with collectible release projections',
+    readingTimeMinutes: 5,
+    status: 'draft',
+    body: [
+      'This draft entry is intentionally unpublished and should never surface on public routes, listings, sitemap output, or homepage selections.',
+      'It exists to harden launch behavior around editorial visibility and prevent accidental pre-publication exposure.',
+      'Finalize this story only after sourcing is complete and status is switched to published in a separate editorial workflow step.',
+    ],
+  }
+
 ];

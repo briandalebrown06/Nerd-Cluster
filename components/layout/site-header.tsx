@@ -58,7 +58,6 @@ export function SiteHeader() {
           className="mobile-menu-toggle"
           aria-expanded={mobileOpen}
           aria-controls={navId}
-          aria-haspopup="menu"
           onClick={() => setMobileOpen((open) => !open)}
           type="button"
         >
@@ -95,7 +94,7 @@ export function SiteHeader() {
         <div className={cn('mobile-panel', 'mobile-panel--open')} id={navId}>
           <Container>
             <nav aria-label="Mobile primary" className="site-nav">
-              <ul className="mobile-nav__list" role="menu">
+              <ul className="mobile-nav__list">
                 {primaryNav.map((item, index) => {
                   const isActive =
                     item.href === '/'
@@ -112,7 +111,6 @@ export function SiteHeader() {
                         className={cn('mobile-nav__link', isActive && 'mobile-nav__link--active')}
                         href={item.href}
                         onClick={() => setMobileOpen(false)}
-                        role="menuitem"
                       >
                         <span>{item.label}</span>
                         <span className="mobile-nav__description">{item.description}</span>

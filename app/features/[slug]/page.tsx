@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { EditorialDetail } from '@/components/content/editorial-detail';
 import { getEntriesBySection, getEntryBySlug } from '@/lib/content/entries';
+import { buildDetailMetadata } from '@/lib/metadata';
 
 export async function generateStaticParams() {
   return getEntriesBySection('features').map((entry) => ({ slug: entry.slug }));
@@ -20,25 +21,13 @@ export async function generateMetadata({
     return { title: 'Feature' };
   }
 
-  return {
+  return buildDetailMetadata({
     title: entry.title,
     description: entry.excerpt,
-    alternates: {
-      canonical: `/features/${entry.slug}`,
-    },
-    openGraph: {
-      type: 'article',
-      title: entry.title,
-      description: entry.excerpt,
-      url: `/features/${entry.slug}`,
-      publishedTime: entry.publishedAt,
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: entry.title,
-      description: entry.excerpt,
-    },
-  };
+    pathname: `/features/${entry.slug}`,
+    type: 'article',
+    publishedTime: entry.publishedAt,
+  });
 }
 
 export default async function FeatureDetailPage({ params }: { params: Promise<{ slug: string }> }) {

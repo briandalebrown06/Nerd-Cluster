@@ -4,20 +4,15 @@ import { getEntriesBySection } from '@/lib/content/entries';
 import { toAbsoluteUrl } from '@/lib/site-config';
 import { getStoreProducts } from '@/lib/store/products';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const staticRoutes = [
-    '/',
-    '/news',
-    '/reviews',
-    '/features',
-    '/store',
-    '/about',
-    '/contact',
-  ].map((route) => ({
-    url: toAbsoluteUrl(route).toString(),
-    lastModified: new Date(),
-  }));
+function getStableSiteLastModified(editorialDates: Date[]): Date {
+  if (editorialDates.length === 0) {
+    return new Date('2026-01-01T00:00:00.000Z');
+  }
 
+  return editorialDates.reduce((latest, current) => (current > latest ? current : latest));
+}
+
+export default function sitemap(): MetadataRoute.Sitemap {
   const editorialRoutes = ['news', 'reviews', 'features'] as const;
 
   const editorialEntries = editorialRoutes.flatMap((section) =>
@@ -27,9 +22,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
+  const stableSiteLastModified = getStableSiteLastModified(
+    editorialEntries.map((entry) => entry.lastModified),
+  );
+
+  const staticRoutes = ['/', '/news', '/reviews', '/features', '/store', '/about', '/contact'].map(
+    (route) => ({
+      url: toAbsoluteUrl(route).toString(),
+      lastModified: stableSiteLastModified,
+    }),
+  );
+
   const storeRoutes = getStoreProducts().map((product) => ({
     url: toAbsoluteUrl(`/store/${product.slug}`).toString(),
-    lastModified: new Date(),
+    lastModified: stableSiteLastModified,
   }));
 
   return [...staticRoutes, ...editorialEntries, ...storeRoutes];
