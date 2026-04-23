@@ -7,10 +7,6 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { NerdClusterLogo } from '@/components/brand/nerd-cluster-logo';
 import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/cn';
-<<<<<<< HEAD
-import { clusterStatus } from '@/lib/homepage-content';
-=======
->>>>>>> f627431394e325825967a6591acb665de4d36f57
 import { primaryNav } from '@/lib/site-navigation';
 
 export function SiteHeader() {
