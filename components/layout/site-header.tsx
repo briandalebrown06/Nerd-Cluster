@@ -7,6 +7,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import { NerdClusterLogo } from '@/components/brand/nerd-cluster-logo';
 import { Container } from '@/components/ui/container';
 import { cn } from '@/lib/cn';
+import { clusterStatus } from '@/lib/homepage-content';
 import { primaryNav } from '@/lib/site-navigation';
 
 export function SiteHeader() {
@@ -36,6 +37,13 @@ export function SiteHeader() {
 
   return (
     <header className="site-header-wrap">
+      <div className="cluster-status-bar" role="status" aria-live="polite">
+        <Container className="cluster-status-bar__inner">
+          <p>{clusterStatus.theme}</p>
+          <p>{clusterStatus.pulse}</p>
+        </Container>
+      </div>
+
       <div className="site-header">
         <Container className="site-header__inner">
           <Link
@@ -47,7 +55,7 @@ export function SiteHeader() {
             <NerdClusterLogo className="brand-cluster__logo" priority />
             <span className="brand-cluster__text-wrap">
               <span className="brand-cluster__name">Nerd Cluster</span>
-              <span className="brand-cluster__tagline">Midnight Edition</span>
+              <span className="brand-cluster__tagline">Cinematic editorial feed</span>
             </span>
           </Link>
 
