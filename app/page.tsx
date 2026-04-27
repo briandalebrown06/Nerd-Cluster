@@ -4,11 +4,14 @@ import Link from 'next/link';
 import { Container } from '@/components/ui/container';
 import {
   aboutStrip,
+  clusterStatus,
   featuredReview,
+  franchiseTakeover,
   fromBlog,
   heroSpotlight,
   latestNews,
   newsletterCta,
+  podcastVideoLane,
   storeSpotlight,
   tonightInCluster,
 } from '@/lib/homepage-content';
@@ -31,9 +34,14 @@ export default function HomePage() {
   return (
     <main id="main-content" className="page-shell home-page">
       <Container className="home-magazine">
+        <section className="home-theme-strip" aria-label="Theme and desk status">
+          <p>{clusterStatus.theme}</p>
+          <p>{clusterStatus.pulse}</p>
+        </section>
+
         <section className="home-lead-grid" aria-labelledby="home-hero-title">
           <article className="feature-hero">
-            <p className="section-label">Cover Story</p>
+            <p className="section-label">Hero Section</p>
             <h1 id="home-hero-title" className="feature-hero__title">
               {heroSpotlight.title}
             </h1>
@@ -49,7 +57,7 @@ export default function HomePage() {
             </div>
           </article>
 
-          <aside className="stacked-modules" aria-label="Front page modules">
+          <aside className="stacked-modules" aria-label="Tonight in the Cluster">
             <section className="editorial-module">
               <p className="section-label">Tonight in the Cluster</p>
               <ul className="tonight-list">
@@ -76,7 +84,7 @@ export default function HomePage() {
 
         <section className="home-section" aria-labelledby="news-row-title">
           <div className="home-section__header">
-            <p className="section-label">News Wire</p>
+            <p className="section-label">Latest News</p>
             <h2 id="news-row-title" className="home-section__title">
               Breaking updates and studio shifts
             </h2>
@@ -112,9 +120,25 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="home-two-column" aria-labelledby="features-column-title">
-          <div>
-            <p className="section-label">From the Features Desk</p>
+        <section className="home-two-column" aria-labelledby="franchise-takeover-title">
+          <article className="franchise-takeover">
+            <p className="section-label">Franchise Takeover</p>
+            <h2 id="franchise-takeover-title" className="home-section__title">
+              {franchiseTakeover.title}
+            </h2>
+            <p className="module-excerpt">{franchiseTakeover.deck}</p>
+            <ul className="franchise-points">
+              {franchiseTakeover.points.map((point) => (
+                <li key={point}>{point}</li>
+              ))}
+            </ul>
+            <Link className="story-link" href={franchiseTakeover.href}>
+              Open Takeover Brief
+            </Link>
+          </article>
+
+          <section aria-labelledby="features-column-title" className="minimal-list-block">
+            <p className="section-label">From the Blog</p>
             <h2 id="features-column-title" className="home-section__title">
               Essays, craft breakdowns, and fandom analysis
             </h2>
@@ -130,10 +154,7 @@ export default function HomePage() {
                 </Link>
               </article>
             ) : null}
-          </div>
 
-          <aside className="minimal-list-block" aria-label="Secondary feature stories">
-            <p className="section-label">More to Read</p>
             <ul className="minimal-story-list">
               {columnFeatures.map((story) => (
                 <li key={story.title}>
@@ -142,13 +163,32 @@ export default function HomePage() {
                 </li>
               ))}
             </ul>
-          </aside>
+          </section>
         </section>
 
-        <section className="home-two-column" aria-labelledby="collector-signal-title">
+        <section className="home-section" aria-labelledby="podcast-lane-title">
+          <div className="home-section__header">
+            <p className="section-label">Podcast / Video Lane</p>
+            <h2 id="podcast-lane-title" className="home-section__title">
+              Shows in development for deeper fandom conversation
+            </h2>
+          </div>
+          <div className="podcast-lane-grid">
+            {podcastVideoLane.map((item) => (
+              <article key={item.title} className="podcast-lane-card card-shell">
+                <p className="story-row__category">{item.format}</p>
+                <h3 className="story-row__title">{item.title}</h3>
+                <p className="home-meta">{item.status}</p>
+                <p className="module-excerpt">{item.description}</p>
+              </article>
+            ))}
+          </div>
+        </section>
+
+        <section className="home-two-column" aria-labelledby="store-spotlight-title">
           <section className="collector-strip">
-            <p className="section-label">Collector Signal</p>
-            <h2 id="collector-signal-title" className="home-section__title">
+            <p className="section-label">Store Spotlight</p>
+            <h2 id="store-spotlight-title" className="home-section__title">
               Shelf-worthy drops this week
             </h2>
             <div className="collector-cards">
@@ -165,7 +205,7 @@ export default function HomePage() {
             </div>
           </section>
 
-          <section className="editorial-module">
+          <section className="editorial-module cluster-signal-panel">
             <p className="section-label">Cluster Signal</p>
             <h2 className="module-title">{newsletterCta.title}</h2>
             <p className="module-excerpt">{newsletterCta.body}</p>
@@ -182,7 +222,7 @@ export default function HomePage() {
 
         <section className="home-section" aria-labelledby="about-strip-title">
           <article className="about-ribbon">
-            <p className="section-label">About Nerd Cluster</p>
+            <p className="section-label">About Strip</p>
             <h2 id="about-strip-title" className="home-section__title">
               {aboutStrip.title}
             </h2>

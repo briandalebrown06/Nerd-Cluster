@@ -1587,3 +1587,176 @@ body {
     align-items: start;
   }
 }
+
+/* Launch-pack polish pass: cinematic editorial surfaces */
+:root {
+  --background: #070914;
+  --surface: #111625;
+  --surface-soft: #171d30;
+  --surface-strong: #0b0f1c;
+  --text: #f4f7ff;
+  --text-muted: #a5b2cc;
+  --brand: #6fd7ff;
+  --accent: #c2a3ff;
+  --border: #29324a;
+  --border-strong: #3c4a68;
+}
+
+html,
+body {
+  background:
+    radial-gradient(circle at 84% -12%, rgba(115, 109, 255, 0.24), transparent 34%),
+    radial-gradient(circle at -4% 16%, rgba(111, 215, 255, 0.14), transparent 29%),
+    linear-gradient(180deg, #080b16 0%, #070914 56%, #080b14 100%);
+}
+
+.cluster-status-bar {
+  border-bottom: 1px solid rgba(111, 215, 255, 0.25);
+  background: linear-gradient(90deg, rgba(111, 215, 255, 0.12), rgba(194, 163, 255, 0.12));
+}
+
+.cluster-status-bar__inner {
+  min-height: 2.3rem;
+  font-size: 0.69rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.site-header {
+  border-bottom: 1px solid rgba(111, 215, 255, 0.22);
+  background: color-mix(in srgb, var(--surface-strong) 90%, transparent);
+}
+
+.brand-cluster {
+  border: 1px solid rgba(111, 215, 255, 0.28);
+  border-radius: 999px;
+  padding: 0.28rem 0.82rem 0.28rem 0.32rem;
+  background: linear-gradient(120deg, rgba(111, 215, 255, 0.15), rgba(194, 163, 255, 0.15));
+}
+
+.brand-cluster__name {
+  font-size: 0.93rem;
+  letter-spacing: 0.14em;
+}
+
+.site-nav__link {
+  border-radius: 999px;
+  font-size: 0.74rem;
+  padding-inline: 0.75rem;
+}
+
+.home-magazine {
+  gap: clamp(2.4rem, 5vw, 4.2rem);
+}
+
+.home-theme-strip {
+  border: 1px solid var(--border-strong);
+  border-radius: 0.9rem;
+  background:
+    linear-gradient(130deg, rgba(111, 215, 255, 0.11), transparent 48%),
+    linear-gradient(180deg, rgba(17, 22, 37, 0.96), rgba(17, 22, 37, 0.82));
+  padding: 0.9rem 1rem;
+  display: grid;
+  gap: 0.38rem;
+}
+
+.home-theme-strip p {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #d5def3;
+}
+
+.feature-hero,
+.editorial-module,
+.franchise-takeover,
+.minimal-list-block,
+.collector-strip,
+.about-ribbon,
+.story-row {
+  border-radius: 0.95rem;
+  border: 1px solid var(--border);
+  background:
+    linear-gradient(160deg, rgba(111, 215, 255, 0.07), transparent 40%),
+    linear-gradient(180deg, rgba(17, 22, 37, 0.96), rgba(14, 18, 30, 0.86));
+}
+
+.feature-hero {
+  border-left: 3px solid rgba(111, 215, 255, 0.76);
+}
+
+.feature-hero__title {
+  max-width: 13ch;
+  text-wrap: balance;
+}
+
+.story-row--lead,
+.editorial-module--spotlight,
+.about-ribbon {
+  border-left-width: 3px;
+  border-left-color: rgba(194, 163, 255, 0.65);
+}
+
+.home-section__header {
+  gap: 0.45rem;
+}
+
+.home-section__title {
+  font-size: clamp(1.5rem, 3.2vw, 2.35rem);
+  letter-spacing: 0.01em;
+}
+
+.feature-story-panel {
+  margin-top: 0.9rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: rgba(14, 18, 30, 0.7);
+}
+
+.minimal-story-list {
+  margin-top: 1rem;
+  gap: 0.15rem;
+}
+
+.minimal-story-list li {
+  padding-block: 0.82rem;
+}
+
+.podcast-lane-card {
+  border-color: var(--border-strong);
+  background:
+    linear-gradient(165deg, rgba(194, 163, 255, 0.12), transparent 44%),
+    linear-gradient(180deg, rgba(17, 22, 37, 0.96), rgba(14, 18, 30, 0.84));
+}
+
+.collector-card {
+  border-top-color: rgba(111, 215, 255, 0.25);
+}
+
+.cluster-signal-panel {
+  border-color: rgba(111, 215, 255, 0.4);
+  background:
+    linear-gradient(145deg, rgba(111, 215, 255, 0.16), rgba(194, 163, 255, 0.16)),
+    linear-gradient(180deg, rgba(17, 22, 37, 0.96), rgba(14, 18, 30, 0.84));
+}
+
+.site-footer {
+  border-top: 1px solid rgba(111, 215, 255, 0.22);
+  background:
+    radial-gradient(circle at 8% 0%, rgba(111, 215, 255, 0.12), transparent 42%),
+    linear-gradient(180deg, rgba(12, 16, 28, 0.84), rgba(8, 11, 20, 0.98));
+}
+
+@media (min-width: 900px) {
+  .home-theme-strip {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+
+  .home-lead-grid {
+    grid-template-columns: minmax(0, 1.5fr) minmax(310px, 0.85fr);
+  }
+
+  .story-row-grid {
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  }
+}
