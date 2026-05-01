@@ -36,6 +36,15 @@ export function SiteHeader() {
 
   return (
     <header className="site-header-wrap">
+      <div className="signal-status-bar" role="note" aria-label="Editorial signal status">
+        <Container className="signal-status-bar__inner">
+          <span className="signal-status-bar__edition">Midnight Edition</span>
+          <p className="signal-status-bar__message">
+            Signal live · Fresh drops across News, Reviews, and Features
+          </p>
+        </Container>
+      </div>
+
       <div className="site-header">
         <Container className="site-header__inner">
           <Link
@@ -47,7 +56,7 @@ export function SiteHeader() {
             <NerdClusterLogo className="brand-cluster__logo" priority />
             <span className="brand-cluster__text-wrap">
               <span className="brand-cluster__name">Nerd Cluster</span>
-              <span className="brand-cluster__tagline">Midnight Edition</span>
+              <span className="brand-cluster__tagline">Pop-culture editorial</span>
             </span>
           </Link>
 

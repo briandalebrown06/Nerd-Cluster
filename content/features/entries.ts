@@ -8,7 +8,7 @@ export const featureEntries: EditorialEntry[] = [
     slug: 'why-practical-effects-drive-creature-cinema-resurgence',
     excerpt:
       'Directors and VFX teams are rebuilding trust in tactile monsters by blending practical craft with modern compositing restraint.',
-    publishedAt: '2026-04-18',
+    publishedAt: '2026-04-26',
     authorId: 'jules-orozco',
     categories: ['Film Craft'],
     tags: ['practical-effects', 'horror', 'production-design'],
@@ -18,7 +18,7 @@ export const featureEntries: EditorialEntry[] = [
     body: [
       'Studios once treated practical creature work as nostalgia. Today it is becoming a strategic quality signal tied to audience immersion.',
       'Teams interviewed for this story described hybrid pipelines where practical textures establish physical credibility and digital passes handle continuity and scale.',
-      'The most successful projects are not anti-CGI—they are anti-weightlessness. Tactile detail is the differentiator fans immediately feel.',
+      'The most successful projects are not anti-CGI — they are anti-weightlessness. Tactile detail is the differentiator fans immediately feel.',
     ],
   },
   {
@@ -28,7 +28,7 @@ export const featureEntries: EditorialEntry[] = [
     slug: 'franchise-lore-streaming-era-context-new-canon',
     excerpt:
       'As release windows compress, editorial explainers and fan timelines have become essential parts of the viewing experience.',
-    publishedAt: '2026-04-13',
+    publishedAt: '2026-04-23',
     authorId: 'maya-lane',
     categories: ['Analysis'],
     tags: ['franchise', 'lore', 'audience-behavior'],
@@ -48,7 +48,7 @@ export const featureEntries: EditorialEntry[] = [
     slug: 'building-collection-story-value-not-just-shelf-value',
     excerpt:
       'Intentional collectors are prioritizing narrative relevance and craft lineage over hype-cycle purchasing.',
-    publishedAt: '2026-04-10',
+    publishedAt: '2026-04-20',
     authorId: 'jules-orozco',
     categories: ['Collector Guide'],
     tags: ['collecting', 'long-term', 'curation'],
@@ -59,6 +59,66 @@ export const featureEntries: EditorialEntry[] = [
       'Collector strategy has matured. Instead of buying by scarcity alone, many fans now build around themes, creators, and personal narrative arcs.',
       'This method tends to produce shelves that age better visually and emotionally, especially when display decisions reflect a clear curatorial thesis.',
       'The practical takeaway is simple: collect in clusters of meaning, not bursts of urgency.',
+    ],
+  },
+  {
+    id: 'feature-completionist-dilemma',
+    section: 'features',
+    title: "The Completionist's Dilemma: When Collecting Becomes Curating",
+    slug: 'completionist-dilemma-collecting-becomes-curating',
+    excerpt:
+      'There is a point in most collections where quantity becomes a problem. The collectors who navigate it best have a clear answer to the question: what is this shelf actually for?',
+    publishedAt: '2026-04-17',
+    authorId: 'maya-lane',
+    categories: ['Collector Guide'],
+    tags: ['collecting', 'curation', 'philosophy'],
+    featuredImage: 'Overfull collector shelf being reorganized with purpose',
+    readingTimeMinutes: 8,
+    status: 'published',
+    body: [
+      'Most serious collectors hit a wall around the same time. The purchases that felt intentional at the start start blurring into a general accumulation, and the display logic — if it ever existed — becomes hard to read.',
+      'The collectors who avoid this are usually the ones who shifted from asking "do I want this?" to asking "does this belong here?" That second question requires having a curatorial thesis, not just taste.',
+      'The shelf as identity statement is a real phenomenon. What you choose to display, and what you choose not to, says something about how you understand fandom — as participation or as curation.',
+    ],
+  },
+  {
+    id: 'feature-anthology-storytelling-moment',
+    section: 'features',
+    title: 'Why Anthology Storytelling Is Having Its Best Moment in Decades',
+    slug: 'anthology-storytelling-best-moment-in-decades',
+    excerpt:
+      'Self-contained narratives let creators take risks that serialized formats cannot afford. Audiences seem to have finally caught up.',
+    publishedAt: '2026-04-14',
+    authorId: 'jules-orozco',
+    categories: ['Analysis', 'TV'],
+    tags: ['anthology', 'storytelling', 'format', 'streaming'],
+    featuredImage: 'Anthology book spine collection with distinct cover designs',
+    readingTimeMinutes: 8,
+    status: 'published',
+    body: [
+      'The anthology format has always existed at the edges of prestige television — respected but rarely celebrated the way serialized dramas are.',
+      'That calculus is changing. Streaming has created a distribution context where self-contained stories can land with real cultural weight without requiring a season-long commitment from audiences.',
+      'The result is a format that attracts writers who want to experiment and audiences who want something they can actually finish. That is a rare alignment in contemporary TV.',
+    ],
+  },
+  {
+    id: 'feature-comfort-watch-economy',
+    section: 'features',
+    title: 'The Comfort-Watch Economy Is Undefeated. Here Is Why That Matters.',
+    slug: 'comfort-watch-economy-undefeated-why-it-matters',
+    excerpt:
+      'Repeat viewing is not a sign of limited taste. It is a symptom of how much people need certain stories to function as emotional infrastructure.',
+    publishedAt: '2026-04-11',
+    authorId: 'maya-lane',
+    categories: ['Culture'],
+    tags: ['rewatching', 'comfort-media', 'audience-behavior'],
+    featuredImage: 'Cozy television setup with warm ambient lighting',
+    readingTimeMinutes: 7,
+    status: 'published',
+    body: [
+      'Streaming platforms were not designed around the rewatch, but viewers immediately started using them that way. The autoplay queue is full of people returning to something they already know.',
+      'This behavior reveals something about what audiences actually want from media: not always novelty, but reliability. The emotional state a known story creates is reproducible in a way new content cannot promise.',
+      'The media industry is still figuring out how to build for this. The audiences already figured it out.',
     ],
   },
 ];
