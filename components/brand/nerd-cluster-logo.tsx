@@ -15,10 +15,10 @@ export function NerdClusterLogo({
 }: NerdClusterLogoProps) {
   return (
     <Image
-      src="/brand/nerd-cluster-logo.png"
+      src="/brand/nerd-cluster-logo.jpg"
       alt={label}
-      width={240}
-      height={80}
+      width={269}
+      height={254}
       className={cn('logo-mark', className)}
       priority={priority}
     />
